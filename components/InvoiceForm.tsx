@@ -340,7 +340,7 @@ export default function InvoiceForm({ defaultPaymentTerms, defaultTaxRate, taxEn
               </svg>
               Creating…
             </>
-          ) : 'Create Invoice & Send Notification'}
+          ) : 'Create Invoice'}
         </button>
       </div>
     </form>
