@@ -19,8 +19,8 @@ export default function SettingsForm({ settings }: { settings: Settings | null }
   const [companyPhone, setCompanyPhone] = useState(s?.company_phone ?? '')
   const [companyEmail, setCompanyEmail] = useState(s?.company_email ?? '')
   const [defaultTerms, setDefaultTerms] = useState(s?.default_payment_terms ?? 'Net 30')
-  const [taxRate, setTaxRate] = useState(s ? (s.tax_rate * 100).toFixed(1) : '8.0')
-  const [taxEnabled, setTaxEnabled] = useState(s?.tax_enabled ?? true)
+  const [taxRate, setTaxRate] = useState(s ? (s.tax_rate * 100).toFixed(1) : '0.0')
+  const [taxEnabled, setTaxEnabled] = useState(s?.tax_enabled ?? false)
 
   const [loading, setLoading] = useState(false)
   const [saved, setSaved] = useState(false)
