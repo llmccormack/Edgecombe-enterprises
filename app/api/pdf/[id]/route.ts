@@ -3,11 +3,12 @@ import { createServerClient } from '@/lib/supabase'
 import { generateInvoicePDF } from '@/lib/pdf'
 import { Invoice, Settings } from '@/types'
 
-export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const db = createServerClient()
 
   const [{ data: invoiceData, error: invError }, { data: settingsData }] = await Promise.all([
-    db.from('invoices').select('*').eq('id', params.id).single(),
+    db.from('invoices').select('*').eq('id', id).single(),
     db.from('settings').select('*').limit(1).single(),
   ])
 
