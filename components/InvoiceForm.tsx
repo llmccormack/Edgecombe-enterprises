@@ -182,27 +182,24 @@ export default function InvoiceForm({ defaultPaymentTerms, defaultTaxRate, taxEn
             <div key={item.id} className="grid grid-cols-12 gap-2 sm:gap-3 items-start">
               {/* Description + dropdown */}
               <div className="col-span-12 sm:col-span-6 space-y-1">
-                <div className="flex gap-1">
-                  <input
-                    type="text"
-                    value={item.description}
-                    onChange={e => updateItem(item.id, 'description', e.target.value)}
-                    className="input flex-1"
-                    placeholder="Service description"
-                    required
-                  />
-                  <select
-                    value=""
-                    onChange={e => setServiceFromDropdown(item.id, e.target.value)}
-                    className="input w-8 px-0 text-center cursor-pointer flex-shrink-0"
-                    title="Pick a common service"
-                  >
-                    <option value="" disabled>▼</option>
-                    {COMMON_SERVICES.map(s => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
-                </div>
+                <input
+                  type="text"
+                  value={item.description}
+                  onChange={e => updateItem(item.id, 'description', e.target.value)}
+                  className="input"
+                  placeholder="Service description"
+                  required
+                />
+                <select
+                  value=""
+                  onChange={e => setServiceFromDropdown(item.id, e.target.value)}
+                  className="input text-sm text-stone-500"
+                >
+                  <option value="" disabled>Quick pick a common service…</option>
+                  {COMMON_SERVICES.map(s => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
               </div>
 
               {/* Qty */}
